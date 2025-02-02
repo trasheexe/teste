@@ -6,18 +6,18 @@
     <title>dev: akqme & trashe1337</title>
     <style>
         body {
-    font-size: 16px;
-}
+            font-size: 16px;
+        }
 
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-}
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
 
-        /* fundo de tela */
+        /* Fundo de tela */
         #video-background {
-            position: fixed;   
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
@@ -25,6 +25,7 @@
             object-fit: cover;
             z-index: -1;
         }
+
         /* Estilo global */
         body {
             font-family: Arial, sans-serif;
@@ -34,15 +35,18 @@
             background-color: #ffffff;
             color: #00000038;
         }
-         /*botao*/
-         a img {
+
+        /* Botão */
+        a img {
             border: 2px solid #000000;
             border-radius: 5px;
-            cursor: pointer
-         }
-         a img:hover {
+            cursor: pointer;
+        }
+
+        a img:hover {
             opacity: 0.5;
-         }
+        }
+
         /* Cabeçalho */
         header {
             background: rgb(177, 139, 139);
@@ -51,8 +55,9 @@
             text-align: center;
         }
 
-         p {
-            margin: 0;padding: 10px;
+        p {
+            margin: 0;
+            padding: 10px;
             background: rgb(177, 139, 139);
             color: rgb(0, 0, 0);
         }
@@ -81,7 +86,6 @@
             padding: 10px;
             margin: 10px auto;
             max-width: 800px;
-        
             background: rgb(177, 139, 139);
             border-radius: 8px;
             box-shadow: 0 4px 6px rgb(0, 0, 0);
@@ -104,44 +108,47 @@
         footer p {
             margin: 0;
         }
-
     </style>
 </head>
 <body>
+
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop id="video-background">
+        <source src="https://www.example.com/seu-video-anime.mp4" type="video/mp4">
+        Seu navegador não suporta o formato de vídeo.
+    </video>
+
+    <!-- Cabeçalho -->
     <header>
         <h1>Bem-vindo ao Meu Site!</h1>
     </header>
+
+    <!-- Navegação -->
     <nav>
-        <a href="#sobre">Sobre</a> | 
+        <a href="#sobre">Sobre</a> |
         <a href="#contato">Contato</a>
-        <a href="redes sociais">redes sociais</a>
+        <a href="#redes-sociais">Redes Sociais</a>
     </nav>
+
+    <!-- Seção Sobre -->
     <section id="sobre">
         <h2>Sobre mim</h2>
-        <p>Meu nome e jorge
-        Tenho 15 anos 
-        estou estudando programaçao full stack front-end pela plataforma MIMO</p>
+        <p>Meu nome é Jorge, tenho 15 anos e estou estudando programação Full Stack Front-End pela plataforma MIMO.</p>
     </section>
-    <html>
-        <html>
-            <body>
-              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8VsvdCaSyaQ?autoplay=1&mute=1&loop=1&playlist=8VsvdCaSyaQ" 
-                frameborder="1000" allow="autoplay; fullscreen" allowfullscreen></iframe>
-            </body>
-          </html>
-              <body>
-         <section id="redes sociais">
-       <h2>redes sociais</h2>
-          <a href="https://www.instagram.com/akqme.not/"
-            target="_blank"><img src="https://img.freepik.com/vetores-premium/icone-do-instagram_459124-2001.jpg"
-            alt="instagram" width="50"></a>
-        <section>
-    </body>
-</html>
-<body>
-<footer id="contato">
-    <h2>Contato</h2>
-    <p>Email: jorge.victornolasco14@gmail.com</p>
 
-</footer>
-<body>
+    <!-- Seção Redes Sociais -->
+    <section id="redes-sociais">
+        <h2>Redes Sociais</h2>
+        <a href="https://www.instagram.com/akqme.not/" target="_blank">
+            <img src="https://img.freepik.com/vetores-premium/icone-do-instagram_459124-2001.jpg" alt="Instagram" width="50">
+        </a>
+    </section>
+
+    <!-- Seção Contato -->
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: jorge.victornolasco14@gmail.com</p>
+    </footer>
+
+</body>
+</html>
