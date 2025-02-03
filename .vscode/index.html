@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dev: akqme & trashe1337</title>
+    <style>
+        body {
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        /* Fundo de tela */
+        #video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Estilo global */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #00000038;
+        }
+
+        /* Botão */
+        a img {
+            border: 2px solid #ffffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        a img:hover {
+            opacity: 0.5;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: rgb(177, 139, 139);
+            color: rgb(0, 0, 0);
+            padding: 10px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+            padding: 10px;
+            background: rgb(177, 139, 139);
+            color: rgb(0, 0, 0);
+        }
+
+        /* Navegação */
+        nav {
+            background: rgb(255, 255, 255);
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Seções */
+        section {
+            padding: 10px;
+            margin: 10px auto;
+            max-width: 800px;
+            background: rgb(177, 139, 139);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgb(0, 0, 0);
+        }
+
+        section h2 {
+            color: #000000;
+            border-bottom: 2px solid #000000;
+            padding-bottom: 5px;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: rgb(177, 139, 139);
+            color: rgb(0, 0, 0);
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop id="video-background">
+        <source src="C:/Users/Trashe/Desktop/Meu%20site/Star background.mp4" type="video/mp4">
+        navegador não suporta o formato de vídeo.
+    </video>
+
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Bem-vindo ao Meu Site!</h1>
+    </header>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="#sobre">Sobre</a> |
+        <a href="#contato">Contato</a>
+        <a href="#redes-sociais">Redes Sociais</a>
+        <a href="certificados">Certificados</a>
+    </nav>
+
+    <!-- Seção Sobre -->
+    <section id="sobre">
+        <h2>Sobre mim</h2>
+        <p>Meu nome é Jorge, tenho 15 anos e estou estudando programação Full Stack Front-End pela plataforma MIMO.</p>
+    </section>
+
+    <!-- Seção Redes Sociais -->
+    <section id="redes-sociais">
+        <h2>Redes Sociais</h2>
+        <a href="https://www.instagram.com/akqme.not/" target="_blank">
+            <img src="https://img.freepik.com/vetores-premium/icone-do-instagram_459124-2001.jpg" alt="Instagram" width="50">
+        </a>
+    </section>
+ 
+    <!-- Seção Contato -->
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: jorge.victornolasco14@gmail.com</p>
+    </footer>
+
+</body>
+</html>
