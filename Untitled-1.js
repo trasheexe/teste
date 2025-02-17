@@ -1,1 +1,2 @@
-IMPUT("HELLO")
+IMPUT= print
+print:"HELLO WORLD"
