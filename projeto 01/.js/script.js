@@ -1,1 +1,1 @@
-IMPUT= print
+window.alert('ola')
