@@ -166,7 +166,7 @@ footer p {
     <!-- Seção Redes Sociais -->
     <section id="redes-sociais">
         <h2>Redes Sociais</h2>
-        <a href="https://www.instagram.com/akqme.not/" target="_blank">
+        <div class="circulo" id="area" onclick="clicar()">
             <img src="https://img.freepik.com/vetores-premium/icone-do-instagram_459124-2001.jpg" alt="Instagram" width="50">
         </a>
         <a href="https://www.linkedin.com/in/jorge-nolasco-bb2806359/" target="_blank">
@@ -187,9 +187,14 @@ footer p {
 window.alert('Ola bem vindo')
 var nome = window.prompt('qual seu nome?')
 window.write(` ola, ${nome} `)
+ function clicar() {
+    indow.location.href = "https://www.instagram.com/akqme.not/"
+        a.style.background = 'white'
+        var a = window.document.getElementById('area')
 
+ }
 
 
     </script>    
 </html>
-</body>
+</body> 
