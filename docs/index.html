@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Página de Login</title>
   <style>
-    
     #video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background: #f2f2f2;
@@ -22,23 +23,28 @@
       align-items: center;
       height: 100vh;
     }
+
     .login-box {
       background: white;
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
     h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-    input[type="text"], input[type="password"] {
+
+    input[type="text"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     button {
       width: 100%;
       padding: 10px;
@@ -48,9 +54,11 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     button:hover {
       background: #0056b3;
     }
+
     .error {
       color: red;
       font-size: 0.9em;
@@ -60,10 +68,11 @@
   <video autoplay muted loop id="video-background">
     <source src="Star background.mp4" type="video/mp4">
     navegador não suporta o formato de vídeo.
-</video>
+  </video>
 </head>
+
 <body>
-    
+
   <div class="login-box">
     <h2>Login</h2>
     <form id="loginForm">
@@ -75,7 +84,7 @@
   </div>
 
   <script>
-    document.getElementById("loginForm").addEventListener("submit", function(event) {
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
       event.preventDefault(); // Impede o envio do formulário
       const usuario = document.getElementById("usuario").value.trim();
       const senha = document.getElementById("senha").value.trim();
@@ -91,4 +100,5 @@
     });
   </script>
 </body>
+
 </html>
