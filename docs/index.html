@@ -1,22 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dev: akqme & trashe1337</title>
-    <style>
-        body {
-    font-size: 16px;
-}
-
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-}
-
-/* Fundo de tela */
-#video-background {
+  <meta charset="UTF-8">
+  <title>Página de Login</title>
+  <style>
+    
+    #video-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -25,180 +14,81 @@
     object-fit: cover;
     z-index: -1;
 }
-
-/* Estilo global */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #ffffff;
-    color: #ffffff;
-}
-
-/* Botão */
-a img  {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-
-        } 
-        .circulo {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-
-        }
-
-
-a img:hover {
-    margin: 0;
-}
-
-/* Cabeçalho */
-header {
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    text-align: center;
-    opacity: 0.5;
-}
-
-p {
-    margin: 0;
-    padding: 10px;
-    opacity: 0.5;
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-}
-
-/* Navegação */
-nav {
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 8px 0;
-    opacity: 0.5;
-}
-
-nav a {
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
-    opacity: 0.5;
-}
-
-nav a:hover {
-    text-decoration: underline;
-    opacity: 0.5;
-}
-
-/* Seções */
-section {
-    padding: 10px;
-    margin: 10px auto;
-    opacity: 0.5;
-    max-width: 800px;
-    background: rgb(0, 0, 0);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgb(0, 0, 0);
-}
-
-section h2 {
-    color: #ffffff;
-    border-bottom: 2px solid #000000;
-    padding-bottom: 5px;
-    opacity: 0.5;
-}
-
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 10px;
-    background: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    opacity: 0.5;
-}
-
-footer p {
-    margin: 0;
-    opacity: 0.5;
-}
- 
-.circulo {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-
-        }
- 
-    </style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+  </style>
+  <video autoplay muted loop id="video-background">
+    <source src="Star background.mp4" type="video/mp4">
+    navegador não suporta o formato de vídeo.
+</video>
 </head>
 <body>
+    
+  <div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuário" required>
+      <input type="password" id="senha" placeholder="Senha" required>
+      <div class="error" id="errorMsg"></div>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 
-    <!-- Vídeo de fundo -->
-    <video autoplay muted loop id="video-background">
-        <source src="Star background.mp4" type="video/mp4">
-        navegador não suporta o formato de vídeo.
-    </video>
-    <audio autoplay loop controls>
-        <source src="audio.mp3" type="audio/mpeg">
-   seu navegador nao suporta audio 
-    </audio>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Impede o envio do formulário
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
 
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Bem-vindo ao  Site!</h1>
-    </header>
-
-    <!-- Navegação -->
-    <nav>
-        <a href="#sobre">Sobre</a> |
-        <a href="#contato">Contato</a>
-        <a href="#redes-sociais">Redes Sociais</a>
-        <a href="Untitled-1.html">Certificados</a>
-    </nav>
-
-    <!-- Seção Sobre -->
-    <section id="sobre">
-        <h2>Sobre mim</h2>
-        <p> ola  </p>
-    </a>
-    </section>
-
-    <!-- Seção Redes Sociais -->
-    <section id="redes-sociais">
-        <h2>Redes Sociais</h2>
-        <div class="circulo" id="area" onclick="clicar()" target="_blank">
-            <img src="https://img.freepik.com/vetores-premium/icone-do-instagram_459124-2001.jpg" alt="area" width="50">
-        </div>
-        <a href="https://www.linkedin.com/in/jorge-nolasco-bb2806359/" target="_blank">
-            <img src="https://www.pngall.com/wp-content/uploads/2016/07/Linkedin-Transparent.png" alt="linkedin" width="50">
-        </a>
-    </section>
-    <!-- Seção Contato -->
-    <footer id="contato">
-        <h2>Contato</h2>
-        <p>Email: jorge.victornolasco14@gmail.com</p>
-    </footer>
-
+      if (usuario === "" || senha === "") {
+        errorMsg.textContent = "Por favor, preencha todos os campos krl .";
+      } else if (usuario === "molestado game" && senha === "69") {
+        window.location.href = "index2.html";
+      } else {
+        errorMsg.textContent = "Usuário ou senha incorretos otArio.";
+      }
+    });
+  </script>
 </body>
 </html>
-<body>
-<html>
-    <script>
-window.alert('Ola bem vindo')
-var nome = window.prompt('qual seu nome?')
-window.write(` ola, ${nome} `)
- function clicar() {
-    window.location.href = "https://www.instagram.com/akqme.not/"
-        a.style.background = 'white'
-        var a = window.document.getElementById('area')
-
- }
-
-
-    </script>    
-</html>
-</body> 
