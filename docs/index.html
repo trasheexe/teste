@@ -19,21 +19,23 @@
     }
 
     #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: -1;
-      transition: opacity 0.5s ease;
-    }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* 👈 isso faz o vídeo ignorar cliques */
+}
+
 
     #toggle-theme {
       position: absolute;
       top: 20px;
       right: 20px;
-      z-index: 1;
+      z-index: 10;
       padding: 10px 20px;
       border: none;
       border-radius: 10px;
