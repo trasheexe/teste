@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/index.css">
+    <link rel="stylesheet" href="../style/index.cs">
     
     <title>by: trashe1337</title>
     <style>
@@ -17,6 +17,147 @@
           object-fit: cover;
           z-index: -1;
         }
+        
+body {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+  }
+  
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Botão */
+a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+
+}
+
+
+a img:hover {
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+p {
+    margin: 0;
+    padding: 10px;
+    opacity: 0.5;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* Navegação */
+nav {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0.5;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.5;
+}
+
+/* Seções */
+section {
+    padding: 10px;
+    margin: 10px auto;
+    opacity: 0.5;
+    max-width: 800px;
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+section h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+    opacity: 0.5;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.circulo {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+}
         </style>
 
 </head>
@@ -73,5 +214,34 @@
 
 </body>
 </html>
-<script src="../script/script.js" defer></script>
+<script>
+    const button = document.getElementById('toggle-theme');
+const video = document.getElementById('bg-video');
+
+// URLs dos vídeos
+const videos = {
+  light: "Vídeo Fundo Céu e Nuvens Branca - Baixar Gratis.mp4",
+  dark: "Star background.mp4"
+};
+
+// Função para aplicar o tema
+function applyTheme(theme) {
+  document.body.className = theme;
+  video.src = videos[theme];
+  localStorage.setItem('theme', theme);
+}
+
+// Alternar tema
+button.addEventListener('click', () => {
+  const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(newTheme);
+});
+
+// Carregar o tema salvo ou padrão
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
+});
+
+</script>
 
