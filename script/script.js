@@ -4,7 +4,7 @@ const video = document.getElementById('bg-video');
 
 // URLs dos vídeos
 const videos = {
-  light: "videos/ceu-claro.mp4",
+  light: "Vídeo Fundo Céu e Nuvens Branca - Baixar Gratis.mp4",
   dark: "Star background.mp4"
 };
 
