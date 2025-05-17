@@ -1,17 +1,28 @@
+
 const button = document.getElementById('toggle-theme');
+const video = document.getElementById('bg-video');
 
+// URLs dos vídeos
+const videos = {
+  light: "videos/ceu-claro.mp4",
+  dark: "Star background.mp4"
+};
+
+// Função para aplicar o tema
+function applyTheme(theme) {
+  document.body.className = theme;
+  video.src = videos[theme];
+  localStorage.setItem('theme', theme);
+}
+
+// Alternar tema
 button.addEventListener('click', () => {
-  document.body.classList.toggle('dark');
-
-  // (opcional) salvar preferência no localStorage
-  const isDark = document.body.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(newTheme);
 });
 
-// (opcional) aplicar o tema salvo
+// Carregar o tema salvo ou padrão
 window.addEventListener('load', () => {
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
-  }
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
 });
