@@ -5,40 +5,63 @@
   <meta charset="UTF-8">
   <title>Página de Login</title>
   <style>
-    #video-background {
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #bg-video {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
       z-index: -1;
+      transition: opacity 0.5s ease;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
+    #toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 1;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      z-index: 2;
+      position: relative;
     }
 
     .login-box {
-      background: white;
+      background: rgba(255, 255, 255, 0.85);
       padding: 40px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      justify-content: center;
-    }
-
-    h2 {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      width: 300px;
       text-align: center;
-      margin-bottom: 20px;
+      transition: background 0.3s, color 0.3s, border 0.3s;
     }
 
-    input[type="text"],
-    input[type="password"] {
+    .login-box input {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -46,7 +69,7 @@
       border: 1px solid #ccc;
     }
 
-    button {
+    .login-box button[type="submit"] {
       width: 100%;
       padding: 10px;
       background: #007bff;
@@ -54,11 +77,13 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease;
     }
 
-    button:hover {
+    .login-box button[type="submit"]:hover {
       background: #0056b3;
-      justify-content: center;
+      transform: scale(1.05); /* animação suave ao passar o mouse */
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
     }
 
     .error {
@@ -66,37 +91,29 @@
       font-size: 0.9em;
       margin-top: 5px;
     }
-    body, html {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
 
-#bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: -1;
-  transition: opacity 0.5s ease;
-}
+    .dark {
+      color: white;
+    }
 
-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  cursor: pointer;
-}
+    .dark .login-box {
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .dark input {
+      background-color: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .dark #toggle-theme {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
 
   </style>
-  
 </head>
 
 <body>
@@ -104,61 +121,57 @@ button {
 
   <video id="bg-video" autoplay muted loop></video>
 
-
-  <div class="login-box">
-    <h2>Login</h2>
-    <form id="loginForm">
-      <input type="text" id="usuario" placeholder="Usuário" required>
-      <input type="password" id="senha" placeholder="Senha" required>
-      <div class="error" id="errorMsg"></div>
-      <button type="submit">Entrar</button>
-    </form>
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="usuario" placeholder="Usuário" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <div class="error" id="errorMsg"></div>
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
   </div>
 
   <script>
     document.getElementById("loginForm").addEventListener("submit", function (event) {
-      event.preventDefault(); // Impede o envio do formulário
+      event.preventDefault();
       const usuario = document.getElementById("usuario").value.trim();
       const senha = document.getElementById("senha").value.trim();
       const errorMsg = document.getElementById("errorMsg");
 
       if (usuario === "" || senha === "") {
-        errorMsg.textContent = "Por favor, preencha todos os campos krl .";
+        errorMsg.textContent = "Por favor, preencha todos os campos krl.";
       } else if (usuario === "molestado game" && senha === "69") {
         window.location.href = "index2.html";
       } else {
         errorMsg.textContent = "Usuário ou senha incorretos otArio.";
       }
     });
+
     const button = document.getElementById('toggle-theme');
-const video = document.getElementById('bg-video');
+    const video = document.getElementById('bg-video');
 
-// URLs dos vídeos
-const videos = {
-  light: "Vídeo Fundo Céu e Nuvens Branca - Baixar Gratis.mp4",
-  dark: "Star background.mp4"
-};
+    const videos = {
+      light: "ceu-claro.mp4",
+      dark: "ceu-estrelado.mp4"
+    };
 
-// Função para aplicar o tema
-function applyTheme(theme) {
-  document.body.className = theme;
-  video.src = videos[theme];
-  localStorage.setItem('theme', theme);
-}
+    function applyTheme(theme) {
+      document.body.className = theme;
+      video.src = videos[theme];
+      localStorage.setItem('theme', theme);
+    }
 
-// Alternar tema
-button.addEventListener('click', () => {
-  const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
-  applyTheme(newTheme);
-});
+    button.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+    });
 
-// Carregar o tema salvo ou padrão
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('theme') || 'light';
-  applyTheme(saved);
-});
-
-</script>
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('theme') || 'light';
+      applyTheme(saved);
+    });
   </script>
 </body>
 
