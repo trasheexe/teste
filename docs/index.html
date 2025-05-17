@@ -54,14 +54,16 @@
     }
 
     .login-box {
-      background: rgba(255, 255, 255, 0.85);
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-      width: 300px;
-      text-align: center;
-      transition: background 0.3s, color 0.3s, border 0.3s;
-    }
+  background: rgba(255, 255, 255, 0.3); /* fundo branco transparente */
+  backdrop-filter: blur(10px);         /* embaçado estilo vidro */
+  -webkit-backdrop-filter: blur(10px); /* compatibilidade com Safari */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
 
     .login-box input {
       width: 100%;
@@ -99,10 +101,11 @@
     }
 
     .dark .login-box {
-      background: rgba(0, 0, 0, 0.6);
-      color: white;
-      border: 1px solid #444;
-    }
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid #444;
+}
+
 
     .dark input {
       background-color: #222;
