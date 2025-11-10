@@ -366,36 +366,32 @@ footer p {
 </body>
 </html>
 <script>
-// ===================
-// BOTÃO DE TROCA DE TEMA
-// ===================
-const button = document.getElementById('toggle-theme');
-const video = document.getElementById('bg-video');
+  // === TROCA DE TEMA ===
+  const button = document.getElementById('toggle-theme');
+  const video = document.getElementById('bg-video');
 
-// URLs dos vídeos
-const videos = {
-  light: "Vídeo Céu.mp4",
-  dark: "Star background.mp4"
-};
+  const videos = {
+    light: "Vídeo Céu.mp4",
+    dark: "Star background.mp4"
+  };
 
-// Função para aplicar o tema
-function applyTheme(theme) {
-  document.body.className = theme;
-  video.src = videos[theme];
-  localStorage.setItem('theme', theme);
-}
+  function applyTheme(theme) {
+    document.body.className = theme;
+    video.src = videos[theme];
+    localStorage.setItem('theme', theme);
+  }
 
-// Alternar tema
-button.addEventListener('click', () => {
-  const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
-  applyTheme(newTheme);
-});
+  button.addEventListener('click', () => {
+    const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+    applyTheme(newTheme);
+  });
 
-// Carregar o tema salvo ou padrão
-window.addEventListener('load', () => {
-  const saved = localStorage.getItem('theme') || 'light';
-  applyTheme(saved);
-});
+  window.addEventListener('load', () => {
+    const saved = localStorage.getItem('theme') || 'light';
+    applyTheme(saved);
+  });
+
+
 
 // ===================
 // EFEITO DE ESTRELAS
