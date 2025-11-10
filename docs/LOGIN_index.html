@@ -141,13 +141,13 @@
         <input type="password" id="senha" placeholder="Senha" required>
         <div class="error" id="errorMsg"></div>
         <button type="submit">Entrar</button>
-      </form>
+         <button>
+          <nav>
+     <a href="CADASTRO_index.html">REGISTRE-SE</a>
+  </nav>
+         </button>
     </div>
   </div>
-  <nav>
-     <a href="CADASTRO.HTML">REGISTRE-SE</a>
-  </nav>
-
 
   <script>
     document.getElementById("loginForm").addEventListener("submit", function (event) {
@@ -159,7 +159,7 @@
       if (usuario === "" || senha === "") {
         errorMsg.textContent = "Por favor, preencha todos os campos krl.";
       } else if (usuario === "molestado game" && senha === "69") {
-        window.location.href = "INICIAL.html";
+        window.location.href = "INICIAL_index.html";
       } else {
         errorMsg.textContent = "Usuário ou senha incorretos otArio.";
       }
