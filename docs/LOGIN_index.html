@@ -118,13 +118,28 @@
       color: white;
     }
     nav a {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     text-decoration: none;
     margin: 0 15px;
     font-weight: bold;
     opacity: 0.5;
 }
+.login-box button[tabindex="a"] {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease;
+    }
 
+    .login-box button[tabindex="a"]:hover {
+      background: #0056b3;
+      transform: scale(1.05); /* animação suave ao passar o mouse */
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+    }
   </style>
 </head>
 
@@ -141,7 +156,7 @@
         <input type="password" id="senha" placeholder="Senha" required>
         <div class="error" id="errorMsg"></div>
         <button type="submit">Entrar</button>
-         <button>
+         <button tabindex="a">
           <nav>
      <a href="CADASTRO_index.html">REGISTRE-SE</a>
   </nav>
