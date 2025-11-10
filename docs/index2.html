@@ -108,86 +108,106 @@
   <canvas id="star-canvas"></canvas>
 
   <script>
-    // === TROCA DE TEMA ===
-    const button = document.getElementById('toggle-theme');
-    const video = document.getElementById('video-background');
+// ===================
+// BOTÃO DE TROCA DE TEMA
+// ===================
+const button = document.getElementById('toggle-theme');
+const video = document.getElementById('bg-video');
 
-    const videos = {
-      light: "Vídeo Céu.mp4",
-      dark: "Star background.mp4"
-    };
+// URLs dos vídeos
+const videos = {
+  light: "Vídeo Céu.mp4",
+  dark: "Star background.mp4"
+};
 
-    function applyTheme(theme) {
-      document.body.className = theme;
-      video.src = videos[theme];
-      localStorage.setItem('theme', theme);
+// Função para aplicar o tema
+function applyTheme(theme) {
+  document.body.className = theme;
+  video.src = videos[theme];
+  localStorage.setItem('theme', theme);
+}
+
+// Alternar tema
+button.addEventListener('click', () => {
+  const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+  applyTheme(newTheme);
+});
+
+// Carregar o tema salvo ou padrão
+window.addEventListener('load', () => {
+  const saved = localStorage.getItem('theme') || 'light';
+  applyTheme(saved);
+});
+
+// ===================
+// EFEITO DE ESTRELAS
+// ===================
+
+// Cria o canvas e o contexto
+const canvas = document.createElement("canvas");
+const ctx = canvas.getContext("2d");
+document.body.appendChild(canvas);
+
+// Ajustes de estilo
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+canvas.style.position = "fixed";
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.pointerEvents = "none"; // não bloqueia cliques
+canvas.style.zIndex = "0"; // entre o vídeo e o conteúdo
+
+// Garante que o vídeo fique no fundo
+const videoBg = document.getElementById("video-background");
+if (videoBg) videoBg.style.zIndex = "-1";
+
+// Cria as estrelas
+const numStars = 120;
+const stars = [];
+for (let i = 0; i < numStars; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    size: Math.random() * 2 + 0.5,
+    speed: Math.random() * 0.5 + 0.1
+  });
+}
+
+let mouseX = canvas.width / 2;
+let mouseY = canvas.height / 2;
+
+// Movimento do mouse
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+// Animação
+function animateStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let star of stars) {
+    const dx = (mouseX - star.x) * 0.0005;
+    const dy = (mouseY - star.y) * 0.0005;
+    star.x += dx;
+    star.y += dy + star.speed;
+
+    if (star.y > canvas.height) {
+      star.y = 0;
+      star.x = Math.random() * canvas.width;
     }
 
-    button.addEventListener('click', () => {
-      const newTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
-      applyTheme(newTheme);
-    });
+    ctx.beginPath();
+    ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.fill();
+  }
 
-    window.addEventListener('load', () => {
-      const saved = localStorage.getItem('theme') || 'light';
-      applyTheme(saved);
-    });
+  requestAnimationFrame(animateStars);
+}
 
-    // === EFEITO DE ESTRELAS ===
-    const canvas = document.getElementById("star-canvas");
-    const ctx = canvas.getContext("2d");
-
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    const numStars = 100;
-    const stars = [];
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        speed: Math.random() * 0.5 + 0.2
-      });
-    }
-
-    let mouseX = canvas.width / 2;
-    let mouseY = canvas.height / 2;
-
-    document.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function animateStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      for (let star of stars) {
-        const dx = (mouseX - star.x) * 0.0005;
-        const dy = (mouseY - star.y) * 0.0005;
-        star.x += dx;
-        star.y += dy + star.speed;
-
-        if (star.y > canvas.height) {
-          star.y = 0;
-          star.x = Math.random() * canvas.width;
-        }
-
-        ctx.beginPath();
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      requestAnimationFrame(animateStars);
-    }
-
-    animateStars();
-
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+animateSt
+ars();
   </script>
-</body>
-</html>
+</body>     
+</html> 
