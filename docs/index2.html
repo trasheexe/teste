@@ -1,66 +1,304 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>by: trashe1337</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/index.cs">    
+    <title>by: trashe1337</title>
+    <style>
+        #video-background {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -1;
+        }
+        
+body {
+    font-size: 16px;
+}
 
-    #video-background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
+}
 
-    header {
-      position: relative;
-      z-index: 2;
-      background: rgba(0,0,0,0.5);
-      padding: 20px;
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+  }
+  
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #ffffff;
+}
+
+/* Botão */
+a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+
+}
+
+
+a img:hover {
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+p {
+    margin: 0;
+    padding: 10px;
+    opacity: 0.5;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* Navegação */
+nav {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0.5;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.5;
+}
+
+/* Seções */
+section {
+    padding: 10px;
+    margin: 10px auto;
+    opacity: 0.5;
+    max-width: 800px;
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+section h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+    opacity: 0.5;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.circulo {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+}
+        
+body {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
     }
+}
 
-    nav {
-      position: relative;
-      z-index: 2;
-      background: rgba(0,0,0,0.5);
-      padding: 10px;
-    }
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  #bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    transition: opacity 0.5s ease;
+  }
+  
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  
+/* Estilo global */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+    color: #ffffff;
+}
 
-    section, footer {
-      position: relative;
-      z-index: 2;
-      background: rgba(0,0,0,0.5);
-      margin: 20px auto;
-      padding: 10px;
-      max-width: 700px;
-      border-radius: 10px;
-    }
+/* Botão */
+a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 
-    #toggle-theme {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 3;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      background-color: rgba(255,255,255,0.7);
-      cursor: pointer;
-    }
 
-    canvas {
+}
+
+
+a img:hover {
+    margin: 0;
+}
+
+/* Cabeçalho */
+header {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+p {
+    margin: 0;
+    padding: 10px;
+    opacity: 0.5;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+/* Navegação */
+nav {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 8px 0;
+    opacity: 0.5;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    opacity: 0.5;
+}
+
+/* Seções */
+section {
+    padding: 10px;
+    margin: 10px auto;
+    opacity: 0.5;
+    max-width: 800px;
+    background: rgb(0, 0, 0);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgb(0, 0, 0);
+}
+
+section h2 {
+    color: #ffffff;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+    opacity: 0.5;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    opacity: 0.5;
+}
+
+footer p {
+    margin: 0;
+    opacity: 0.5;
+}
+
+.circulo {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+}
+  canvas {
       position: fixed;
       top: 0;
       left: 0;
@@ -69,45 +307,65 @@
       pointer-events: none;
       z-index: -1;
     }
-  </style>
+        </style>
+
 </head>
+<html>
 
-<body>
-  <video autoplay muted loop id="video-background">
-    <source src="Star background.mp4" type="video/mp4" />
-    Seu navegador não suporta vídeo.
-  </video>
+    <body>
 
-  <button id="toggle-theme">Mudar Tema</button>
+    <!-- Vídeo de fundo -->
+    <video autoplay muted loop id="video-background">
+        <source src="Star background.mp4" type="video/mp4">
+        navegador não suporta o formato de vídeo.
+      </video>
+    <button id="toggle-theme">Mudar Tema</button>
 
-  <header>
-    <h1>Bem-vindo ao Site!</h1>
-  </header>
+    <video id="bg-video" autoplay muted loop></video>
+  
+    <audio autoplay loop controls>
+        <source src="audio.mp3" type="audio/mpeg">
+        seu navegador nao suporta audio
+    </audio>
 
-  <nav>
-    <a href="#sobre">Sobre</a> |
-    <a href="#contato">Contato</a> |
-    <a href="#redes-sociais">Redes Sociais</a>
-  </nav>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>Bem-vindo ao Site!</h1>
+    </header>
 
-  <section id="sobre">
-    <h2>Sobre mim</h2>
-    <p>Olá, esse é um exemplo com estrelas em JavaScript.</p>
-  </section>
+    <!-- Navegação -->
+    <nav>
+        <a href="#sobre">Sobre</a> |
+        <a href="#contato">Contato</a>
+        <a href="#redes-sociais">Redes Sociais</a>
+        <a href="Untitled-1.html">Certificados</a>
+    </nav>
 
-  <section id="redes-sociais">
-    <h2>Redes Sociais</h2>
-    <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-  </section>
+    <!-- Seção Sobre -->
+    <section id="sobre">
+        <h2>Sobre mim</h2>
+        <p> ola </p>
+        </a>
+    </section>
 
-  <footer id="contato">
-    <h2>Contato</h2>
-    <p>Email: exemplo@email.com</p>
-  </footer>
+    <!-- Seção Redes Sociais -->
+    <section id="redes-sociais">
+        <h2>Redes Sociais</h2>
+        <a href="https://www.linkedin.com/in/jorge-nolasco-bb2806359/" target="_blank">
+            <img src="https://www.pngall.com/wp-content/uploads/2016/07/Linkedin-Transparent.png" alt="linkedin"
+                width="50">
+        </a>
+    </section>
+    <!-- Seção Contato -->
+    <footer id="contato">
+        <h2>Contato</h2>
+        <p>Email: jorge.victornolasco14@gmail.com</p>
+    </footer>
+    <canvas id="star-canvas"></canvas>
 
-  <canvas id="star-canvas"></canvas>
-
-  <script>
+</body>
+</html>
+<script>
 // ===================
 // BOTÃO DE TROCA DE TEMA
 // ===================
@@ -208,6 +466,4 @@ function animateStars() {
 
 animateSt
 ars();
-  </script>
-</body>     
-</html> 
+</script>
