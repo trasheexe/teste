@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Página de Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+  pointer-events: none; /* 👈 isso faz o vídeo ignorar cliques */
+}
+
+
+    #toggle-theme {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: 2;
+      position: relative;
+    }
+
+    .login-box {
+  background: rgba(255, 255, 255, 0.3); /* fundo branco transparente */
+  backdrop-filter: blur(10px);         /* embaçado estilo vidro */
+  -webkit-backdrop-filter: blur(10px); /* compatibilidade com Safari */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+    .login-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .login-box button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease;
+    }
+
+    .login-box button[type="submit"]:hover {
+      background: #0056b3;
+      transform: scale(1.05); /* animação suave ao passar o mouse */
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    .dark {
+      color: white;
+    }
+
+    .dark .login-box {
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: 1px solid #444;
+}
+
+
+    .dark input {
+      background-color: #222;
+      color: white;
+      border: 1px solid #444;
+    }
+
+    .dark #toggle-theme {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    opacity: 0.5;
+}
+.login-box button[tabindex="a"] {
+      width: 90%;
+      padding: 5px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s ease;
+      height: 30px;
+      margin-top: 10px;
+      color: white;
+    }
+
+    .login-box button[tabindex="a"]:hover {
+      background: #0056b3;
+      transform: scale(1.05); /* animação suave ao passar o mouse */
+      box-shadow: 0 0 8px rgb(255, 255, 255);
+    }
+  </style>
+</head>
+
+<body>
+  <button id="toggle-theme">Mudar Tema</button>
+
+  <video id="bg-video" autoplay muted loop></video>
+
+  <div class="container">
+    <div class="login-box">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="usuario" placeholder="Usuário" required>
+        <input type="password" id="senha" placeholder="Senha" required>
+        <div class="error" id="errorMsg"></div>
+        <button type="submit">Entrar</button>
+         <button tabindex="a">
+          <nav>
+     <a href="CADASTRO_index.html">REGISTRE-SE</a>
+  </nav>
+         </button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+      event.preventDefault();
+      const usuario = document.getElementById("usuario").value.trim();
+      const senha = document.getElementById("senha").value.trim();
+      const errorMsg = document.getElementById("errorMsg");
+
+      if (usuario === "" || senha === "") {
+        errorMsg.textContent = "Por favor, preencha todos os campos krl.";
+      } else if (usuario === "molestado game" && senha === "69") {
+        window.location.href = "INICIAL_index.html";
+      } else {
+        errorMsg.textContent = "Usuário ou senha incorretos otArio.";
+      }
+    });
+
+    const button = document.getElementById('toggle-theme');
+    const video = document.getElementById('bg-video');
+
+    const videos = {
+      light: "Vídeo Céu.mp4",
+      dark: "Star background.mp4"
+    };
+
+    function applyTheme(theme) {
+      document.body.className = theme;
+      video.src = videos[theme];
+      localStorage.setItem('theme', theme);
+    }
+
+    button.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+
+    window.addEventListener('load', () => {
+      const saved = localStorage.getItem('theme') || 'light';
+      applyTheme(saved);
+    });
+  </script>
+</body>
+
+</html>
