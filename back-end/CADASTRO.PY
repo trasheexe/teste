@@ -1,7 +1,7 @@
 import secrets
 import os
 
-senha = secrets.token_hex(16)
+senha = secrets.token_hex(5)
 print(senha)
 
 caminho = os.path.join(
