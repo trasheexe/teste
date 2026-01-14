@@ -4,12 +4,12 @@ import os
 senha = secrets.token_hex(5)
 print(senha)
 
-caminho = os.path.join(
-    r"C:\Users\renat\OneDrive\Documentos\GitHub\teste\back-end",
-    "senha.txt"
-)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+caminho = os.path.join(base_dir, "senha.txt")
 
-with open(caminho, "w") as arquivo:   # <-- Mudar para "w"
-    arquivo.write(f"{senha}")
+os.makedirs(os.path.dirname(caminho), exist_ok=True)
+
+with open(caminho, "w", encoding="utf-8") as arquivo:
+    arquivo.write(senha)
 
 print(f"Senha gerada e salva em {caminho}")
